@@ -1,0 +1,45 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div id="user">
+	{%if isUser%}
+		<script src="/media/ctrlEnter.js"></script>
+
+		<form  action="/saveChanges?loginGoogle={{loginGoogle}}" method="post">
+			{%if loginGoogle%}<b>{{loginGoogle}}</b><br />{%endif%}
+			<table width="200px"> 
+				<tr style="text-align:center"> 
+					<td width="50%" align="middle"> <b>Логин</b> </td>
+					<td> <input type="text"  name="login" rows="1" cols="50" style="text-align:center" value={%if login%} {{login}} {%endif%}></td>
+				</tr>
+				<tr style="text-align:center"> 
+					<td width="50%" align="middle"> <b>Имя</b> </td>
+					<td> <input type="text"  name="name" rows="1" cols="50" style="text-align:center" value={%if name%} {{name}} {%endif%}></td>
+				</tr>
+				<tr style="text-align:center"> 
+					<td width="50%" align="middle"> <b>Фамилия</b> </td>
+					<td> <input type="text"  name="lastName" rows="1" cols="50" style="text-align:center" value={%if lastName%} {{lastName}} {%endif%}></td>
+				</tr>
+			</table>		
+			<input id = "input"  type="submit" value="Сохранить измененния">
+		</form>
+		{%if admin%}<hr><a style = "font-size:15px;" href = "/admin">Админка</a>{%endif%}
+	{%else%}
+	{%if loginGoogle%}<b>{{loginGoogle}}({{position}})</b><br />{%endif%}
+	<table width="200px"> 
+				<tr style="text-align:center"> 
+					<td width="50%" align="middle"> <b>Логин</b> </td>
+					<td >{%if login%}{{login}}{%endif%}</td>
+				</tr>
+				<tr style="text-align:center"> 
+					<td width="50%" align="middle"> <b>Имя</b> </td>
+					<td> {%if name%}{{name}}{%endif%}</td>
+				</tr>
+				<tr style="text-align:center"> 
+					<td width="50%" align="middle"> <b>Фамилия</b> </td>
+					<td> {%if lastName%}{{lastName}}{%endif%}</td>
+				</tr>
+			</table>
+	{%endif%}
+</div>
+{% endblock %}

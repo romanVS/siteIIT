@@ -1,0 +1,21 @@
+application: alexurfu
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /media
+  static_dir: media  
+  
+- url: /(|forum|createTopic|actionCreateTopic|topic|addMessage|editMessage|successEditMessage|actionEditMessage|actionDeleteMessage|successDeleteMessage|errorCreateTopic|errorAddMessage|user|saveChanges|addNews|actionAddNews|actionDeleteNews|admin|addAdmin|searchUser|actionAddAdmin|errorLoginExist)
+  script: forum.py
+  
+- url: /(contest|cathedra|about|sitemap|search|games1|games2|shedule1|shedule2|shedule3|shedule4|google8133ff8d2631c81f.html)
+  script: static.py
+  
+- url: /.*
+  script: error404.py
+
+
+
+

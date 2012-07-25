@@ -1,0 +1,14 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div id = "createTopic">
+	<script src="/media/ctrlEnter.js"></script>
+	<form action="/actionCreateTopic" method="post">
+		<b>Название темы:</b>
+		<div><textarea name="nameTopic" rows="1" cols="30"></textarea></div>
+		<b>Сообщение:</b>
+		<div><textarea onFocus="setActive(this)" onBlur="clearActive()" name="message" rows="10" cols="30"></textarea></div>
+		<div><input id = "input" type="submit" value="Создать тему"></div>
+	</form>
+</div>
+{% endblock %}

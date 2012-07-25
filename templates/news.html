@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="news">	
+	<b>Новости</b>
+	{%for new in news%}
+	<hr>
+		<div id = "new{{new.idNew}}" width = "100%">{{new.textNew}}
+		<span align = "right" id = "menuButtonNew"> 
+				{%if admin%}<a href="/actionDeleteNews?idNew={{new.idNew}}">удалить</a></span>{%endif%}
+		</div>
+	{%endfor%}
+</div>
+{% endblock %}

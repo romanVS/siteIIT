@@ -1,0 +1,31 @@
+{% extends "games.html" %}
+
+{% block content %}
+<table width="100%">
+	<tbody>
+		<tr style="text-align:center">
+			<td width="100%" align="middle">
+				<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="500" height="500"> 
+<param name=movie value="kazman.swf"> 
+<param name=quality value=high> 
+<embed src="/../media/flash/kazman.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="500" height="350"></embed></object>
+			</br>
+			<div id="vk_like_kazman" style="margin: auto"></div>
+			<script type="text/javascript">
+VK.Widgets.Like("vk_like_kazman", {type: "button", pageTitle: 'Мне нравиться игра KazMan!'}, 1);
+</script>
+			</td>
+		</tr>
+		<tr>
+			<td width="100%" align="middle">
+				<div id="vk_comments" style="margin: auto"></div>
+<script type="text/javascript">
+VK.Widgets.Comments("vk_comments", {limit: 5, width: "496", attach: "*"});
+</script>
+			</td>
+		</tr>
+	</tbody>
+</table>
+	
+{% endblock %}
+

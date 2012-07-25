@@ -1,0 +1,23 @@
+{% extends "../base.html" %}
+
+{% block content %}
+	
+	<div id="searchUser">
+		<form  action="/searchUser" method="post">
+			<b>Логин</b>
+			<input name = "login"  type="text">
+			<input id = "input"  type="submit" value="Найти">
+		</form>
+	</div>
+	<hr>
+	{%if userPost%}
+		<form  action="/actionAddAdmin?login={{userPost}}" method="post">
+			<b style = "font-size:20px;">{{userPost}}</b>&nbsp&nbsp&nbsp&nbsp
+			<input id = "input"  type="submit" value="назначить администратором">
+		</form>
+	{%endif%}
+
+	{%if error%}
+		<b style = "font-size:20px;">{{error}}</b>
+	{%endif%}
+{% endblock %}s

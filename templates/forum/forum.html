@@ -1,0 +1,59 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div id="forum">
+	{%if isLogin%}
+	<a href="/createTopic">Создать тему</a></br>
+	<table id = "topics" border = "2px" width = "100%"> 
+		<tr>
+			<td width = "75%">
+				<b>Тема</b>
+			</td>
+			<td width = "10%" align = "middle">
+				<b>Дата создания</b>
+			</td>
+			<td width = "15%" align = "middle">
+				<b>Автор темы</b>
+			</td>
+		</tr>
+		{%for topic in topics%}
+		<tr>
+			<td id = "topicName">
+				<div><a href="/topic?idTopic={{topic.idTopic}}&topicPage=1">{{topic.nameTopic}}</a></div>
+			</td>
+			<td id = "topicDate">
+				<div align = "middle">{{topic.dateTopic}}</div>
+			</td>
+			<td id = "topicAuthor">
+				<div align = "middle"><a href="/user?id={{topic.idAuthor}}">{{topic.author}}</a></div>
+			</td>
+		</tr>
+		{%endfor%}
+	</table>
+
+	<div id= "menuButtonPages" align = "right">	
+		{%if visibleAllPages%}
+			{%for count in visibleAllPages%}
+				<a href="/forum?page={{count}}">{{count}}</a>
+			{%endfor%}
+		{%else%}
+			{%for count in visibleStartPages%}
+				<a href="/forum?page=={{count}}">{{count}}</a>
+			{%endfor%}
+			{%if visibleStartSeparator%}...{%endif%}
+			{%if visibleMiddlePages%}
+				{%for count in visibleMiddlePages%}
+					<a href="/forum?page=={{count}}">{{count}}</a>
+				{%endfor%}
+			{%endif%}
+			{%if visibleEndSeparator%}...{%endif%}
+			{%for count in visibleEndPages%}
+				<a href="/forum?page=={{count}}">{{count}}</a>
+			{%endfor%}
+		{%endif%}
+	</div>
+	{%else%}
+	<b>Для того чтобы просматривать форум необходимо {{greetings}} авторизоваться</a><b> 
+	{%endif%}
+</div>
+{% endblock %}

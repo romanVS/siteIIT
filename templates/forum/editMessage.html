@@ -1,0 +1,14 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div id="editMessage" >
+		<p>Редактировать сообщение</p>
+		<script src="/media/ctrlEnter.js"></script>
+		<div id="areaAddMessage" >		
+			<form  action="/actionEditMessage?idTopic={{idTopic}}&idMessage={{idMessage}}" method="post">
+				<textarea  onFocus="setActive(this)" onBlur="clearActive()" name="message" rows="10" cols="100">{{messageText}}</textarea><br />
+				<input id = "input"  type="submit" value="Изменить">
+			</form>
+		</div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "../base.html" %}
+
+{% block content %}
+	<div id="addNews" >
+		<p>Добавить новость</p>
+		<hr>
+		<script src="/media/ctrlEnter.js"></script>		
+		<form  action="/actionAddNews" method="post">
+			Новость<br />
+			<textarea  onFocus="setActive(this)" onBlur="clearActive()" name="textNew" rows="10" cols="100"></textarea><br />
+			<input id = "input"  type="submit" value="Добавить">
+		</form>
+</div>	
+{% endblock %}

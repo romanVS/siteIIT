@@ -1,0 +1,108 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div class="shock">
+<b>Пора выяснить, кто круче...</b>
+</div>
+	<table width="100%">
+		<tr style="text-align:center">
+			<td width="40%" align="middle">
+				<img src="/../media/photo/il.jpg" alt="Илья Николаевич Обабков" title="Главный:)">
+				<br><b>Илья Николаевич Обабков</b>
+				<br><b>Зав. кафедры ИИТ</b>
+				<div id="vk_like_il" style="margin: auto"></div>
+			</td>
+			<td width="20%" align="middle">
+				<img src="/../media/photo/vs.jpg" alt="VS">
+			</td>
+			<td width="40%" align="middle">
+				<img src="/../media/photo/caz.jpg" alt="Кацман Симха Иделевич" title="Всех отчислю...">
+				<br><b>Кацман Симха Иделевич</b>
+				<br><b>Зам. декана</b>
+				<div id="vk_like_caz" style="margin: auto"></div>
+			</td>
+		</tr>
+		<tr style="text-align:center">
+			<td width="40%" align="middle">
+				<img src="/../media/photo/bel.jpg" alt="Бельков Сергей Александрович" title="Эт самое...">
+				<br><b>Бельков Сергей Александрович</b>
+				<br><b>Программист</b>
+				<div id="vk_like_bel" style="margin: auto"></div>
+			</td>
+			<td width="20%" align="middle">
+				<img src="/../media/photo/vs.jpg" alt="VS">
+			</td>
+			<td width="40%" align="middle">
+				<img src="/../media/photo/moc.jpg" alt="Мокрушин Андрей Анатольевич" title="Большой, лохматый, местами даже пушистый...">
+				<br><b>Мокрушин Андрей Анатольевич</b>
+				<br><b>Старший преподаватель</b>
+				<div id="vk_like_moc" style="margin: auto"></div>
+			</td>
+		</tr>
+		<tr style="text-align:center">
+			<td width="40%" align="middle">
+				<img src="/../media/photo/tom.jpg" alt="Бельков Сергей Александрович" title="Это не кот...">
+				<br><b>Томашевич Виктор Григорьевич</b>
+				<br><b>Нуль-терминатор</b>
+				<div id="vk_like_tom" style="margin: auto"></div>
+			</td>
+			<td width="20%" align="middle">
+				<img src="/../media/photo/vs.jpg" alt="VS">
+			</td>
+			<td width="40%" align="middle">
+				<img src="/../media/photo/sen.jpg" alt="Зенков Андрей Вячеславович" title="">
+				<br><b>Зенков Андрей Вячеславович</b>
+				<br><b>Математик</b>
+				<div id="vk_like_sen" style="margin: auto"></div>
+			</td>
+		</tr>
+		<tr style="text-align:center">
+			<td width="40%" align="middle">
+				<img src="/../media/photo/vsh.jpg" alt="Вшивкова Ирина Сергеевна" title="Контрольная...">
+				<br><b>Вшивкова Ирина Сергеевна</b>
+				<br><b>Старший преподаватель</b>
+				<div id="vk_like_vsh" style="margin: auto"></div>
+			</td>
+			<td width="20%" align="middle">
+				<img src="/../media/photo/vs.jpg" alt="VS">
+			</td>
+			<td width="40%" align="middle">
+				<img src="/../media/photo/kon.jpg" alt="Конищев Михаил Иванович" title="">
+				<br><b>Конищев Михаил Иванович</b>
+				<br><b>Терверщик</b>
+				<div id="vk_like_kon" style="margin: auto"></div>
+			</td>
+		</tr>			
+	</table>
+	
+	<div id="vk_comments" ></div>
+<script type="text/javascript">
+VK.Widgets.Comments("vk_comments", {limit: 5, width: "496", attach: "*"});
+</script>
+<!--<div id="vk_like"></div>-->
+<script type="text/javascript">
+VK.Widgets.Like("vk_like_il", {type: "button", pageTitle: 'Обабков круче Кацмана! А за кого голосуешь ты?'}, 9);
+</script>
+<script type="text/javascript">
+VK.Widgets.Like("vk_like_moc", {type: "button", pageTitle: 'Мокрушин круче Белькова! А за кого голосуешь ты?'}, 2);
+</script>
+<script type="text/javascript">
+VK.Widgets.Like("vk_like_bel", {type: "button", pageTitle: 'Бельков круче Мокрушина! А за кого голосуешь ты?'}, 3);
+</script>
+<script type="text/javascript">
+VK.Widgets.Like("vk_like_caz", {type: "button", pageTitle: 'Кацман круче Обабкова! А за кого голосуешь ты?'}, 4);
+</script>
+<script type="text/javascript">
+VK.Widgets.Like("vk_like_tom", {type: "button", pageTitle: 'Томашевич круче Зенкова! А за кого голосуешь ты?'}, 5);
+</script>
+<script type="text/javascript">
+VK.Widgets.Like("vk_like_sen", {type: "button", pageTitle: 'Зенков круче Томашевича! А за кого голосуешь ты?'}, 6);
+</script>
+<script type="text/javascript">
+VK.Widgets.Like("vk_like_vsh", {type: "button", pageTitle: 'Ирина Сергеевна круче Конищева! А за кого голосуешь ты?'}, 7);
+</script>
+<script type="text/javascript">
+VK.Widgets.Like("vk_like_kon", {type: "button", pageTitle: 'Конищев круче Ирины Сергеевны! А за кого голосуешь ты?'}, 8);
+</script>
+
+{% endblock %}

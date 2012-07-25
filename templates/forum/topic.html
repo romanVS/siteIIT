@@ -1,0 +1,74 @@
+{% extends "../base.html" %}
+
+{% block content %}
+<div id="topic" >
+	<div id = "headerTopic" style = "max-width:100%">
+		<a href="/forum?page=1">Форум</a>
+		---->
+		{{topic.nameTopic}}</br>
+	</div>
+
+	<table id = "tableTopic" border="1px" cellpadding = "0" cellspacing="0"> 
+
+		{%for message in messages%}
+		<tr id = "row{{message.Row}}">
+
+			<td id = "author">
+				<a href="/user?id={{message.idAuthor}}">{{message.author}}</a></br>
+			</td>
+
+			<td>
+				<div id = "dateMessage">{{message.dateMessage}}
+				{% if admin %}
+					<span align = "right" id = "menuButtonMessage"> 
+					<a href="/editMessage?idTopic={{topic.idTopic}}&idMessage={{message.idMessage}}">редактировать</a> 
+					<a href="/actionDeleteMessage?idTopic={{topic.idTopic}}&idMessage={{message.idMessage}}">удалить</a></span>
+				{%else%}
+				{% if message.isAuthor %}				
+					<span align = "right" id = "menuButtonMessage"> 
+					<a href="/editMessage?idTopic={{topic.idTopic}}&idMessage={{message.idMessage}}">редактировать</a> 
+					<a href="/actionDeleteMessage?idTopic={{topic.idTopic}}&idMessage={{message.idMessage}}">удалить</a></span>
+				{%endif%}
+				{%endif%}
+				<hr width="98%"></div><div id = "message">
+				{{message.message}}
+				</div>
+			</td>
+
+		</tr>
+		{%endfor%}
+
+	</table>
+
+	<div id= "menuButtonPages" align = "right">	
+		{%if visibleAllPages%}
+			{%for count in visibleAllPages%}
+				<a href="/topic?idTopic={{topic.idTopic}}&topicPage={{count}}">{{count}}</a>
+			{%endfor%}
+		{%else%}
+			{%for count in visibleStartPages%}
+				<a href="/topic?idTopic={{topic.idTopic}}&topicPage={{count}}">{{count}}</a>
+			{%endfor%}
+			{%if visibleStartSeparator%}...{%endif%}
+			{%if visibleMiddlePages%}
+				{%for count in visibleMiddlePages%}
+					<a href="/topic?idTopic={{topic.idTopic}}&topicPage={{count}}">{{count}}</a>
+				{%endfor%}
+			{%endif%}
+			{%if visibleEndSeparator%}...{%endif%}
+			{%for count in visibleEndPages%}
+				<a href="/topic?idTopic={{topic.idTopic}}&topicPage={{count}}">{{count}}</a>
+			{%endfor%}
+		{%endif%}
+	</div>
+	<div id="areaAddMessage">
+		<script src="/media/ctrlEnter.js"></script>
+
+		<br /><b>Добавить сообщение:</b><br />
+		<form  action="/addMessage?idTopic={{topic.idTopic}}" method="post">
+			<textarea  onFocus="setActive(this)" onBlur="clearActive()" name="message" rows="10" cols="100" width = "75%"></textarea>
+			<br /><input id = "input"  type="submit" value="Добавить">
+		</form>
+	</div>
+</div>
+{% endblock %}
